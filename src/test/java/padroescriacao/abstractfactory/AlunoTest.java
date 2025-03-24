@@ -20,6 +20,13 @@ class AlunoTest {
         assertEquals("Histórico de Pós Graduação", aluno.emitirHistorico());
     }
 
+    @Test
+    void deveEmitirHistoricoEM() {
+        FabricaAbstrata fabrica = new FabricaEM();
+        Aluno aluno = new Aluno(fabrica);
+        assertEquals("Histórico do Ensino Médio", aluno.emitirHistorico());
+    }
+
 
     @Test
     void deveEmitirDiplomaGraduacao() {
@@ -33,5 +40,12 @@ class AlunoTest {
         FabricaAbstrata fabrica = new FabricaPosGraduacao();
         Aluno aluno = new Aluno(fabrica);
         assertEquals("Diploma de Pós Graduação", aluno.emitirDiploma());
+    }
+
+    @Test
+    void deveEmitirDiplomaEM() {
+        FabricaAbstrata fabrica = new FabricaEM();
+        Aluno aluno = new Aluno(fabrica);
+        assertEquals("Diploma do Ensino Médio", aluno.emitirDiploma());
     }
 }
